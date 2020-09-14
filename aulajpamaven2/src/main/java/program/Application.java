@@ -14,9 +14,9 @@ public class Application {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("exemplo-jpa");
 		EntityManager em = emf.createEntityManager();
 		
-		Pessoa p = new Pessoa (2, null, null);
+		Pessoa p = em.find(Pessoa.class, 2);
 		
-		em.remove(p);// Erro, só é possível remover uma identidade monitorada
+		em.remove(p);// Objeto monitorado, agora é possível remover
 		
 		System.out.println("Finish");
 		
