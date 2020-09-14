@@ -16,7 +16,9 @@ public class Application {
 		
 		Pessoa p = em.find(Pessoa.class, 2);
 		
+		em.getTransaction().begin(); // necessário incluir transação
 		em.remove(p);// Objeto monitorado, agora é possível remover
+		em.getTransaction().commit();// comita a transação e é feita realmente no banco de dados
 		
 		System.out.println("Finish");
 		
